@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "${PORT}:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: ${spring_profile_active}
