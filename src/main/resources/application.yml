@@ -1,1 +1,9 @@
 config-test: aa
+server:
+  port: 0
+
+spring:
+  cloud:
+    consul:
+      discovery:
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}

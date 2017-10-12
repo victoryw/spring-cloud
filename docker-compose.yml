@@ -1,8 +1,32 @@
 version: '3'
+
+networks:
+  springcloudexample_consul-network:
+    external:
+      name: springcloudexample_consul-network
+
+
 services:
-  web:
+  web-1:
     build: .
     ports:
-     - "${PORT}:8080"
+        - 8081:9091
     environment:
-      SPRING_PROFILES_ACTIVE: ${spring_profile_active}
+      - SPRING_PROFILES_ACTIVE=docker
+      - server.port=9091
+    external_links:
+          - consul:springcloudexample_consul_1
+    networks:
+         - springcloudexample_consul-network
+
+  web-2:
+      build: .
+      ports:
+          - 8082:9091
+      environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - server.port=9091
+      external_links:
+            - consul:springcloudexample_consul_1
+      networks:
+           - springcloudexample_consul-network
