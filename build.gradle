@@ -11,29 +11,34 @@ buildscript {
 	}
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: "io.spring.dependency-management"
-
-group = 'org.victoryw.spring-cloud-example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-consul-dependencies:1.2.1.RELEASE"
-	}
-}
-
-repositories {
-	mavenCentral()
+allprojects {
+    group = 'org.victoryw.spring-cloud-example'
+    version = '0.0.1-SNAPSHOT'
 }
 
 
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.cloud:spring-cloud-starter-consul-all')
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: "io.spring.dependency-management"
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    sourceCompatibility = 1.8
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-consul-dependencies:1.2.1.RELEASE"
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.cloud:spring-cloud-starter-consul-all')
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
 }

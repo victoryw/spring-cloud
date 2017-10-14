@@ -7,7 +7,7 @@ networks:
 
 
 services:
-  web-1:
+  producer-1:
     build: .
     ports:
         - 8081:9091
@@ -19,7 +19,7 @@ services:
     networks:
          - springcloudexample_consul-network
 
-  web-2:
+  producer-2:
       build: .
       ports:
           - 8082:9091
