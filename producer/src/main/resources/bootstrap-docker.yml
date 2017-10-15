@@ -1,7 +1,5 @@
 spring:
   profiles: docker
-  application:
-    name: testConsulApp
   cloud:
     consul:
       host: consul

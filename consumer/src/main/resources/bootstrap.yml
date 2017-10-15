@@ -1,3 +1,6 @@
 spring:
   application:
     name: testConsumerApp
+
+ribbon:
+  ServerListRefreshInterval: 1000

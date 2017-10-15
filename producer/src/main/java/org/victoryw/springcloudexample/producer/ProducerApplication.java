@@ -17,7 +17,7 @@ public class ProducerApplication {
 	@Value("${config-test}")
 	String configTest;
 
-	@RequestMapping("/")
+	@RequestMapping("/hello-world")
 	public String home() {
 		return "Hello World";
 	}

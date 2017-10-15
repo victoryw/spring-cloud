@@ -10,7 +10,7 @@ services:
   producer-1:
     build: .
     ports:
-        - 8081:9091
+        - 11081:9081
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - server.port=9091
@@ -22,7 +22,7 @@ services:
   producer-2:
       build: .
       ports:
-          - 8082:9091
+          - 11082:9081
       environment:
       - SPRING_PROFILES_ACTIVE=docker
       - server.port=9091
