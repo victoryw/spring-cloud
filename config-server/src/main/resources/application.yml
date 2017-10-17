@@ -1,0 +1,13 @@
+server:
+  port: 8100
+
+spring:
+  cloud:
+      consul:
+        discovery:
+          instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      config:
+        server:
+          git:
+            uri: https://github.com/victoryw/spring-cloud-example
+          searchPaths: configuation-folder

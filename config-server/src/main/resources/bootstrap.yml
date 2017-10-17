@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: config-server
+
+ribbon:
+  ServerListRefreshInterval: 1000
