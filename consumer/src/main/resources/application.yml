@@ -1,8 +1,13 @@
 server:
   port: 8091
 
+management:
+  security:
+    enabled: false
+
 spring:
   cloud:
     consul:
       discovery:
         instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+

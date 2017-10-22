@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.context.annotation.Bean;
@@ -14,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-@Configuration
+@RefreshScope
 @EnableDiscoveryClient
 @RestController
 @EnableFeignClients
 @SpringBootApplication
+@Configuration
 public class ConsumerApplication {
 
     private static final String appName = "testProducerApp";
@@ -26,11 +28,7 @@ public class ConsumerApplication {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+
 
     @Autowired
     private SampleClient sampleClient;

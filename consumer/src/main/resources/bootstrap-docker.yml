@@ -4,3 +4,7 @@ spring:
     consul:
       host: consul
       port: 8500
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
