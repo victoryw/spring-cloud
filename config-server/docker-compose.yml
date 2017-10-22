@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  springcloudexample_consul-network:
+    external:
+      name: springcloudexample_consul-network
+
+
+services:
+  config-server:
+    build: .
+    ports:
+        - 11101:9101
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - server.port=9101
+    external_links:
+          - consul:springcloudexample_consul_1
+    networks:
+         - springcloudexample_consul-network
