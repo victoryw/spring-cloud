@@ -1,7 +1,5 @@
 spring:
   application:
     name: testProducerApp
-  cloud:
-    consul:
-      host: 127.0.0.1
-      port: 8500
+  profiles:
+    active: local

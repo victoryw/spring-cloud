@@ -1,9 +1,5 @@
 spring:
   application:
     name: testConsumerApp
-  cloud:
-    config:
-      uri: http://127.0.0.1:11101/
-
-ribbon:
-  ServerListRefreshInterval: 1000
+  profiles:
+    active: local

@@ -6,5 +6,6 @@ spring:
       port: 8500
     config:
       discovery:
-        enabled: true
         serviceId: config-server
+  ribbon:
+    ServerListRefreshInterval: 1000

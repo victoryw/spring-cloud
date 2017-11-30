@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: testProducerApp
+  cloud:
+    consul:
+      enabled: false
+    config:
+      uri: http://127.0.0.1:11101/
+      enabled: false
+    bus:
+      enabled: false

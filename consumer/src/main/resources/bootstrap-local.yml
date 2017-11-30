@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+    consul:
+      enabled: false
+    bus:
+      enabled: false
+
+ribbon:
+  ServerListRefreshInterval: 1000
+testProducerApp:
+  ribbon:
+    listOfServers: localhost:3010
